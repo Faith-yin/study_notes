@@ -1,0 +1,148 @@
+
+
+零、ES6 部分语法：
+	
+	（1）模板字符串  ` `  ：它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量
+
+
+
+一、React 组件的三个属性
+
+	【注：	用 类 声明的组件都是可以有状态 state 的，
+	
+		用 函数 声明的组件都是 无状态组件，此类无状态组件可提高性能 】
+
+	（1）this.state：表示当前组件的状态
+
+		【A】state 只能在组件的 constructor 中初始化
+
+		【B】state 只能用 setState 方法更新
+
+		【C】state 会导致 render 重新执行，渲染组件 和 子组件
+		
+		
+
+	（2）this.props：组件接收的参数：用于自上而下传递参数
+
+		【A】用类 class 定义的组件需使用 this.props ；
+
+		【B】用函数 function 定义的组件，接收参数之后使用 props
+			
+
+	（3）this.context：组件接收的上下文，上下文检查 propTypes
+
+		结合第三方 prop-types 库进行类型检查
+
+		【A】父组件用  childContextTypes 静态属性的类型检查，放入全局参数的类型，在 getChildCcontext 函数中返回子组件需要的 context
+		
+		【B】子组件用 contextType 静态属性的类型检查，声明需要获取父组件放入全局 context 中的参数类型
+
+
+
+
+二、JSX 标签属性说明
+
+	HTML 标签属性	JSX		原因
+
+	for		htmlFor		for 在 JS 中为 for 循环关键字
+
+	class		className	class 在 JS 中为声明类关键字
+
+	style		需使用 JS 对象{{ }}
+
+
+
+
+三、事件监听
+
+	（1）在 JSX 中，事件监听的属性为驼峰式命名
+
+	（2）在 JSX 中，事件监听指向一个 JS 函数
+
+	HTML：onclick = " handleClick( ) "
+
+	JSX：onClick = { ( ) => this . hanleClick( ) }
+
+
+
+四、生命周期函数
+
+      ★★★现阶段（v16.8.6）：17 版本之前生命周期函数
+
+	1、加载阶段：
+
+		constructor( props )  // 加载的时候调用一次，可以初始化state
+
+		componentWillMount()  // 【将被弃用】组件将要加载：组件加载时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state
+
+		render() // react最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行
+
+		componentDidMount()  // 组件已经加载：组件渲染之后调用，只调用一次
+
+
+	2、更新阶段：
+
+		componentWillReceiveProps( nextProps )  // 【将被弃用】组件将要接收参数：组件加载时不调用，组件接受新的props时调用
+		
+		shouldComponentUpdate( nextProps, nextState )  // 组件是否应该更新：组件接收到新的props或者state时调用，return true就会更新dom（使用diff算法更新），return false能阻止更新（不调用render）
+
+		componentWillUpdate( nextProps, nextState )  // 【将被弃用】组件将要更新：组件加载时不调用，只有在组件将要更新时才调用，此时可以修改state
+
+		render()
+
+		componentDidUpdate()  // 组件已经更新完毕：组件加载时不调用，组件更新完成后调用
+
+
+	3、卸载阶段：
+
+
+		componentWillUnmount()  // 组件将要卸载：组件渲染之后调用，只调用一次
+
+
+	注：（1）组件有两种更新方式：
+
+		setState：主动更新：具有 shouldComponentUpdate() 函数
+
+		forceUpdate：强制更新：不具有 shouldComponentUpdate() 函数
+
+	       （2）组件会随父组件的更新而更新
+
+
+
+     （★★★之后阶段：17 版本之后生命周期函数
+	见 png 图片：17版本之后新生命周期函数.png）
+
+
+
+五、关键词含义
+
+	
+	1、默认 defaultProps 参数：设定默认的 props，在组件没有被传入 props 时生效
+
+	2、类型检查 propType：结合第三方 prop-type 库进行类型检查（npm install prop-types --save）
+		
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+
+
+
+1、json 数据类型：
+	
+	string  number  boolean  array  object  null
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JQuery实现全选框按钮</title>
+   
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+    <script>
+      	function ckAll(){
+      		//prop() 方法设置或返回被选元素的属性和值
+      		$(".ck").prop("checked",$(".ckAll").prop("checked"));
+      	}
+
+		function ck(){
+	        var count = 0;  
+	        //each() 方法为每个匹配元素规定要运行的函数(返回 false 可用于及早停止循环)
+	        $("input[type=checkbox][class=ck]").each(function(){  
+	            if(!$(this).prop('checked')){// 判断一组复选框是否有未选中的  
+	                count+=1;
+	            }  
+	        });  
+	        if(count == 0) { // 如果没有未选中的那么全选框被选中  
+	            $('.ckAll').prop('checked', true);  
+	        } else {
+	            $('.ckAll').prop('checked', false);
+	        }  
+		}
+		
+		function bathDel(){
+			var ids="";
+			$(".ck:checked").each(function(){
+				ids+="，"+this.value;
+			});
+			if(ids.length<1){
+				alert("请选择");
+				return null;
+			}else{
+				//substr(index,length) 方法指定位置,截取指定长度的内容,若length省略，则默认后面的全部内容
+				ids=ids.substr(1);
+				alert(ids);
+			}
+		}
+	
+    </script>
+</head>
+<body>
+	<center>
+		<table>
+			<tr>
+				<td><input type="checkbox" name="1" class="ck" onclick="ck()" id="1" value="一号电池"/></td><td>一号电池</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="2" class="ck" onclick="ck()" id="2" value="二号电池"/></td><td>二号电池</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="3" class="ck" onclick="ck()" id="3" value="三号电池"/></td><td>三号电池</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="3" class="ck" onclick="ck()" id="3" value="四号电池"/></td><td>四号电池</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="3" class="ck" onclick="ck()" id="3" value="五号电池"/></td><td>五号电池</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" class="ckAll" id="ckAll" onclick="ckAll()" />全选</td><td><button onclick="bathDel()">弹出选中值</button></td>
+			</tr>
+		
+		
+		
+		</table>
+	</center>
+</body>
+</html>

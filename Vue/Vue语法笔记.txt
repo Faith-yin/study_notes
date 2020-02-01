@@ -1,0 +1,247 @@
+一、Vue 指令
+
+	1、: 或 v-bind:	数据单向绑定(从 M 绑定到 V)：绑定属性	
+
+			（1）v-bind: class	绑定类名
+
+	        		（2）v-bind: herf	绑定链接
+
+			（3）v-bind: style	绑定样式
+			
+	
+	2、v-html		（1）绑定 html 标签，解析html标签元素
+
+			（2）会覆盖此DOM元素中的内容，只会替换自己的这个占位符
+	
+	3、@ 或 v-on：	绑定事件（如：click ... ）
+
+			事件修饰符：(例：@click.stop)
+
+				（1）.stop	阻止冒泡，用于在此执行后阻止事件继续传播...
+
+				（2）.click.prevent	阻止默认事件，阻止链接在点击时跳转...
+
+				（3）.capture	添加事件侦听器时使用事件捕获模式(从外向里冒泡)
+
+				（4）.self		只当事件在该元素(比如不是子元素)触发时触发回调
+
+				（5）.once	事件只触发一次  
+
+	4、v-model	数据双向绑定：只能绑定 表单 元素的内容或值
+	
+	5、v-for		列表渲染，四种使用方式：
+
+				（1）循环普通数组
+
+				（2）循环对象数组
+
+				（3）循环对象（键值对）：v-for="(value, key ,index)  in  list"
+
+				（4）循环数字：v-for="count  in  10"
+
+			* * * 在 2.2.0 版本之后，key 必须加：v-for="(item, index)  in  list"   :key="index"
+			key属性只能使用 number 或 string 类型，不一定要是index；必须使用 v-bind:  属性绑定的形式，指定key的值
+
+	6、v-show	条件渲染：每次不会进行 DOM 的删除和创建操作，只是切换了元素的display：none 样式
+
+	7、v-if		每次都会重新删除或创建元素
+	
+	6、v-cloak	解决插值表达式闪烁的问题
+	
+	7、v-text		插值表达式：例：<div v-text="msg"></div>
+
+			（1）没有闪烁问题
+
+			（2）会覆盖此DOM元素中的内容，只会替换自己的这个占位符
+	
+	8、
+
+
+
+
+二、Vue 实例（vm）生命周期
+	
+	创建期间：1、beforeCreat()：实例未创建
+
+		 2、created()：创建之后：data 和 methods 已经初始化好了
+
+		 3、beforeMount()：模板在内存中已编译好，但尚未挂载到页面上去
+
+		 4、mounted()：挂载之后：用户可以看到渲染好的页面了，DOM 节点的操作最早可以在此进行
+
+	运行阶段：触发条件：当 data 数据改变时
+	
+		 1、beforeUpdate()：界面未更新，data 数据被更新了
+
+		 2、updated()：页面和 data 数据已经保持同步，都是最新的
+
+	销毁阶段：触发条件：关闭网页时
+
+		 1、beforeDestory()：进入销毁阶段，此时实例身上所有的 data 所有的 methods，以及 过滤器、指令......都处于可用状态，还没有真正执行销毁的过程
+
+		 2、destoryed()：组件中所有的数据、方法、指令、过滤器......都已经不可用了
+
+
+
+
+三、Vue 实例（vm）的常用对象
+
+	var vm = new Vue ({
+
+		el:  ' #app ' ,
+		data:  {  },  // 只有根实例中的data是一个对象，而组件中的data是一个函数，需要return返回值
+		methods:  {  },
+		watch:  {  },	// 侦听器
+		computed:  {  },	// 计算属性
+		filters:  {  },	// 私有过滤器
+		directives:  {  },	// 私有指令
+		components:  {  },	// 私有组件
+		render:  {  },	// 渲染为HTML结构（覆盖容器之前的元素）
+		store( vuex 的实例名称 ):  {  },	// vuex 实例
+
+
+		// vm 实例生命周期函数
+		beforeCreate( ) {  },
+		created( ) {  },
+		beforeMounted( ) {  },
+		mounted( ) {  },
+		beforeUpdate( ) {  },
+		updated( ) {  },
+		beforeDestroy( ) {  },
+		destoryed( ) {  },
+
+	})
+
+
+
+
+四、Vue 提供的常用的标签
+
+
+	component：定义组件
+
+	template：放置组件的模板标签
+
+	transition：包裹需要动画效果的标签
+
+	transitionGroup：包裹使用 v-for 修饰的需要动画效果的标签（如：li ）
+
+
+
+五、vue 中路由导航守卫有哪几种：
+
+	（1）全局守卫：
+
+		router.beforeEach（(to, from, next) => { }）
+
+		router.afterEach(( to, from ) => { })
+
+	（2）组件内的守卫：
+
+		beforeRouteEnter：( to, from, next ) => { }
+
+		beforeRouteLeave：( to, from, next ) => { }
+
+	（3）路由独享的守卫：
+
+		beforeEnter：( to, from, next ) => { }
+
+
+
+六、请求接口相关操作
+
+	
+	get 请求：获得数据
+	
+	post 请求：增加数据
+
+	put 请求：修改数据
+
+	delete 请求：删除数据
+
+
+
+	resource ：response . data
+
+	axios：response . data
+
+
+
+七、VueX
+
+	使用场景：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车	
+
+	const store =  new  Vuex.Store( {
+
+		state: {  },  //存放状态的（其实就是存放数据的地方，所有的数据都存放到这）
+
+		mutations: {  },  //用来更新状态的一些逻辑写在这里面，其实就是操作数据的一些 js 方法
+
+		actions: {  },  //用来操作 mutation 的，
+				同步操作：伪代码：xxx.click( store.commit )
+				异步操作：伪代码：xxx.click( store.dispatch )
+
+		getters: {  }  //用来获取 state 里面的数据的，其实就是 get 数据的
+
+		modules:  {  }  //可以将 store 模块化
+
+	} )
+
+
+
+八、ajax
+
+	1、$ . get ( ) : 发送 get 请求
+		
+		语法：$ . get ( url，[data] ,[callback] , [type] )
+			
+			参数：	url：请求路径
+				data：请求参数
+				callback：回调函数
+				type：响应结果的类型
+
+
+	2、$ . post( ) : 发送 post请求
+
+		语法：$ . post( url，[data] ,[callback] , [type] )
+			
+			参数：	url：请求路径
+				data：请求参数
+				callback：回调函数
+				type：响应结果的类型
+
+
+
+	3、function  fun（）{
+		
+		$ . ajax（{
+
+			url：“ajaxServlet”，  //请求路径
+			type：“POST”，  //请求方式
+			data：{“username”：“jack”，“age”：23}，  //请求参数
+			success：function（data）{
+				alert（data）；
+			}  //响应成功后的回调函数
+
+		}）		
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

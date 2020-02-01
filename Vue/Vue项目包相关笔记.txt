@@ -1,0 +1,217 @@
+
+运行 vue 项目：npm run dev
+
+
+0、创建 vue 项目过程（先进入自定义目录）：
+
+	（1）vue  init  webpack  project-demo
+
+	（2）	Project  name：project-demo
+
+		Project  description：（默认回车）
+
+		Author：yin	
+			
+		Vue build：（默认回车）
+
+		Install  vue-router：y
+
+		Use  ESLint ... ：n
+
+		Set  up  unit  tests：n
+
+		Setup  e2e  tests：n
+
+		Should  we  run ... ：npm
+
+	（3）cd  project-demo
+
+	（4）npm  run  dev
+
+
+
+
+一、创建完 vue 项目后：
+
+	1、进入项目文件夹，安装项目依赖：npm install
+
+
+	2、（可选）安装vuex的命令：npm install vuex --save
+
+
+	3、（可选）安装scss依赖的命令：npm  install scss --save-dev
+			   npm  install scss-loader --save-dev
+			   npm  install sass-loader --save-dev
+			   npm  install node-sass --save-dev
+
+
+	4、安装 vue-resource 包
+
+		npm  i  vue-resource  -S
+
+
+	5、安装 axios 包
+
+		npm  i  axios  -S
+
+	6、安装 json-server 包（本地安装，全局已有）（作为服务端请求接口）
+
+		npm  i  json-server  -S
+
+
+	7、（可选）安装 jquery 包的命令：
+		（1）首先在 package.json 里的dependencies加入 "jquery" : "^3.2.1"
+		（2）在终端里输入 npm install jquery –save-dev  ,当然用 淘宝镜像 cnpm 也是可以的
+		（3）找到 build 文件夹下的 webpack.base.conf.js 文件，在其首行添加：var webpack=require('webpack')
+		（4）在 webpack.base.conf.js 中 module.exports 的最后加入这几行代码：
+			plugins:[
+   		    	new webpack.ProvidePlugin({
+      		          	$: "jquery",
+     		          	jQuery: "jquery",
+      		         	"windows.jQuery": "jquery"
+   		     	})
+  			]
+		（5）在 main.js 中引入,加入下面这行代码 import $ from 'jquery'
+		（6）最后一步，重新跑一边就好，npm run dev
+
+
+	8、（可选）Webpack 的安装命令：
+		全局安装：npm install -g webpack ( npm i webpack -g )
+		（安装到你的项目目录：npm install --save-dev webpack）
+
+		全局安装 webpack 脚手架：npm install -g webpack-cli ( npm i webpack-cli -g )
+
+
+
+
+二、webpack 项目：
+
+	0、使用包管理器进行管理：
+
+		npm  init  -y
+
+
+	1、全局安装（已安装）：npm install -g webpack ( npm i webpack -g )
+	    
+	     安装到你的项目目录：npm install --save-dev webpack）
+
+	     全局安装 webpack 脚手架：npm install -g webpack-cli ( npm i webpack-cli -g )
+
+
+	2、项目中安装 jquery ：
+
+		npm  i  jquery  -S
+
+
+	3、webpack 打包 main.js 文件的命令：
+	
+		webpack  要打包的文件路径  --output  打包好要输出的文件路径
+			（ .\src\main.js ）		（ .dist\bundle.js ）
+
+
+	4、安装自动打包编译工具，将 bundle.js 放置内存中（只能安装本地项目中）：
+
+		npm  i  webpack-dev-server  -D
+
+		（ 如果项目本地没有 webpack ，则需要本地项目安装webpack：npm  i  webpack  -D
+						
+		    同样需要 webpack-cli ：npm  i  webpack-cli  -D ）
+
+
+	5、安装在内存中自动生成 HTML 页面的插件
+
+		npm  i  html-webpack-plugin  -D
+
+
+	6、安装加载样式文件的加载器
+
+		npm  i  style-loader  -D
+
+		（1）.css 文件加载器：npm  i  css-loader  -D
+
+		（2）.less 文件加载器：npm  i  less-loader  -D
+
+				    npm  i  less  -D
+
+		（2）.scss 文件加载器：npm  i  sass-loader  -D
+
+				    npm  i  node-sass  -D
+
+	7、在项目中安装 url 加载器
+
+		npm  i  url-loader  file-loader  -D
+
+
+	8、在项目中安装 bootstrap 插件
+
+		npm  i  bootstrap  -S
+
+
+	9、安装 babel 插件（用于解析转换 ES6 高级语法）
+
+		npm  i  @babel-core  babel-loader  babel/runtime  @babel-plugin-transform-runtime  -D
+
+		npm  i  @babel/perset-env  -D
+
+
+	10、安装 vue 包
+
+		npm  i  vue  -S
+
+	       安装 vue-loader 加载器
+
+		npm  i  vue-loader  vue-template-compiler -D
+
+	       安装 vue-router 包
+
+		npm  i vue-router  -S
+
+	       安装 vuex 包
+
+		npm  i  vuex  -S
+
+
+	11、安装 mint-ui 组件
+
+		npm  i  mint-ui  -S
+
+
+	12、安装 vue-resource 包
+
+		npm  i  vue-resource  -S
+
+
+
+	13、安装 moment 组件（用于格式化时间）
+
+		npm  i  moment   -S
+
+	13、安装 vue 图片懒加载插件
+
+		npm install vue-lazyload   --save
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

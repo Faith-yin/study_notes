@@ -1,0 +1,110 @@
+
+
+
+一、ajax
+
+	1、$ . get ( ) : 发送 get 请求
+		
+		语法：$ . get ( url，[data] ,[callback] , [type] )
+			
+			参数：	url：请求路径
+				data：请求参数
+				callback：回调函数
+				type：响应结果的类型
+
+
+	2、$ . post( ) : 发送 post请求
+
+		语法：$ . post( url，[data] ,[callback] , [type] )
+			
+			参数：	url：请求路径
+				data：请求参数
+				callback：回调函数
+				type：响应结果的类型
+
+
+
+	3、function  fun（）{
+		
+		$ . ajax（{
+
+			url：“ajaxServlet”，  //请求路径
+			type：“POST”，  //请求方式
+			data：{“username”：“jack”，“age”：23}，  //请求参数
+			success：function（data）{
+				alert（data）；
+			}  //响应成功后的回调函数
+
+		}）		
+
+
+	}
+
+
+
+	4、
+
+	$.ajax({  
+             		type: "POST",  
+            		url: "/login",  
+             		contentType: 'application/x-www-form-urlencoded;charset=utf-8',  
+             		data: {username:$("#username").val(), password:$("#password").val()},  
+             		dataType: "json",  
+             		success: function(data){  
+                         		console.log(data);  
+                      	}，  
+             		error:function(e){  
+                         		console.log(e);  
+             		}  
+         	}); 
+
+
+
+	5、状态码
+
+		readyState 状态码：
+		0：请求未初始化
+		1：服务器连接已建立
+		2：请求已接收
+		3：请求处理中
+		4：请求已完成，且响应已就绪
+
+		HTTP  status 状态码：
+		200：服务器成功返回网页
+		404：请求的网页不存在
+		503：服务器暂时不可用
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

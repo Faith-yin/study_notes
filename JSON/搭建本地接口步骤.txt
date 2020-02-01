@@ -1,0 +1,61 @@
+
+
+一、搭建本地数据接口总结笔记：
+
+	1、全局安装 json-server（已安装）
+
+		npm install -g json-server
+
+	2、创建自定义文件夹，然后 cd  该文件夹目录下
+
+	3、初始化 package.json
+
+		npm init
+
+	4、安装依赖包
+
+		npm install json-server
+
+	5、配置启动方式（命令）
+
+		{
+			
+			"name": "jsonserver",
+			"version": "1.0.0",
+			"description": "",
+			"main": "index.js",
+			"script": {
+				"json-server": "json-server  --watch  user.json"
+			}
+
+		}
+
+
+	6、在当前目录下创建 user.json 文件（名字自定义）
+
+	7、在终端中启动 jsonserver
+
+		npm run json-server
+
+	8、
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

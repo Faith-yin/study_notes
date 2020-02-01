@@ -1,0 +1,114 @@
+
+
+1、const,var,let区别与用法
+
+	const定义的变量不可以修改，而且必须初始化；
+
+	var定义的变量可以修改，如果不初始化会输出undefined，不会报错；
+
+	let是块级作用域，函数内部使用let定义后，对函数外部无影响。
+
+
+
+2、原型、原型链的概念：（https://blog.csdn.net/cc18868876837/article/details/81211729）
+
+	（1）（__proto__）它是对象所独有的，由一个对象指向一个对象（子 -> 父）
+
+	（2）（prototype ）它是对象所独有的，从一个函数指向一个对象
+
+	（3）（constructor）对象才拥有的，从一个对象指向一个函数，含义就是指向该对象的构造函数
+
+
+	总结一下：
+
+	【1】__proto__和constructor属性是对象所独有的；
+	
+	【2】 prototype属性是函数所独有的，因为函数也是一种对象，所以函数也拥有__proto__和constructor属性。
+	
+		__proto__属性的作用就是当访问一个对象的属性时，如果该对象内部不存在这个属性，那么就会去它的__proto__
+
+		属性所指向的那个对象（父对象）里找，一直找，直到__proto__属性的终点null，再往上找就相当于在null上取值，
+
+		会报错。通过__proto__属性将对象连接起来的这条链路即我们所谓的原型链。
+	
+	【3】prototype属性的作用就是让该函数所实例化的对象们都可以找到公用的属性和方法，即f1.__proto__ === Foo.prototype。
+	
+	【4】constructor属性的含义就是指向该对象的构造函数，所有函数（此时看成对象了）最终的构造函数都指向Function。
+
+
+
+3、DOM元素Attribute与Property的区别是什么？
+
+	（1）、 property是DOM中的属性，是JavaScript里的对象；而attribute是HTML标签上的特性，它的值只能够是字符串；
+
+	（2）、DOM对象初始化时会在创建默认的基本property；只有在HTML标签中定义的attribute才会被保存在property的attributes属性中；
+
+	（3）、attribute会初始化property中的同名属性，但自定义的attribute不会出现在property中；
+
+	（4）、propety是对象，而attribute的值都是字符串；
+
+
+	【总结最关键的两句话：】
+
+		attribute（特性），是我们赋予某个事物的特质或对象。
+
+		property（属性），是早已存在的不需要外界赋予的特质
+
+
+4、ES6 预解析：
+
+	（1）函数声明 （2）变量声明但未赋值 （3）变量赋值 （4）函数执行
+
+	eg：代码：a=1;
+		show();
+		var a;
+		function show() { }
+
+	ES6 预解析：function show（）{ }
+		var a;
+		a=1;
+		show();
+
+
+5、typeof 共返回 6 种数据格式：
+	
+	（1）object （2）undefined （3）string （4）number （5）boolean （6）function
+	
+	【注意：】Array 和 null 返回的都是 object
+
+
+
+6、$(document).ready 和 window.onload 的区别：
+
+	（1）$(document).ready:是DOM结构绘制完毕后就执行，不必等到加载完毕。 意思就是DOM树加载完毕，
+
+		就执行，不必等到页面中图片或其他外部文件都加载完毕。并且可以写多个.ready。
+
+	（2）window.onload:是页面所有元素都加载完毕，包括图片等所有元素。只能执行一次
+
+
+
+7、添加、删除、更改、插入节点的方法
+
+	（1）appendChild
+
+	（2）removeChild
+
+	（3）replaceChild
+
+	（4）insertBefore
+
+	【需要联合使用：】
+
+		createElement：创建新的 DOM 节点
+
+		createTextNode：DOM 节点中的内容
+
+
+
+
+
+
+
+
+

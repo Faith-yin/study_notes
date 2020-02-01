@@ -1,0 +1,39 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+  <script type="text/javascript" src="js/city.js" ></script>
+  <link rel="stylesheet" href="css/city.css" />
+  <title>jQuery实现中国省市县三级联动</title>
+</head>
+<body>
+	<center>
+	    <table class="citycss" cellspacing="0" cellpadding="0">
+	    	<tr>
+	    		<td>省/直辖市/自治区</td>
+	    		<td>市</td>
+	    		<td>区/县</td>
+	    	</tr>
+		    <tr>
+		        <td>
+		            <select id="province" name="province" onchange="doProvAndCityRelation();">
+		                <option id="choosePro"value="-1">请选择</option>
+		            </select>
+		        </td>
+		         
+		        <td>
+		            <select id="citys" name="city" onchange="doCityAndCountyRelation();">
+		              <option id='chooseCity' value='-1'>请选择</option>
+		            </select>
+		        </td>
+		          
+		        <td>
+		            <select id="county" name="county">
+		                <option id='chooseCounty' value='-1'>请选择</option>
+		            </select>
+		        </td>
+		    </tr>
+	    </table>
+    </center>
+</body>
+</html>

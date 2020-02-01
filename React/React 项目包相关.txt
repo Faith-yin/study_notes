@@ -1,0 +1,103 @@
+
+运行 react 项目：npm  start
+
+
+0、浏览器调试安装插件 React Developer Tools
+
+	（1）下载 react-developer-tools.crs
+
+	（2）打开 chrome://extensions/
+
+	（3）将 .crx 文件拖动到 chrome 中
+
+	（4）开始使用
+
+	
+
+
+一、建项目过程（先进入自定义目录）
+
+	create-react-app  project-demo
+
+	cd  project-demo
+
+	npm  start
+
+
+
+
+二、插件包的 npm 安装
+
+	0、全局安装 react 脚手架 （已安装）
+
+		npm install -g create-react-app 
+
+
+	1、数据类型检查 propType
+		
+		npm install prop-types --save
+
+
+	2、web 端 react-router 路由的安装
+
+		npm install react-router-dom --save
+
+
+	3、过渡动画 插件的安装
+
+		npm install react-transition-group--save
+
+	4、（1）redux 的安装
+
+		npm  install  redux  --save
+
+	      （2）react-redux 的安装
+
+		npm install react-redux  --save
+
+	5、ant-design 样式插件的安装
+
+		npm  install  antd  --save
+
+	6、Font Awesome 图标样式插件的安装
+
+		npm install font-awesome  -save
+
+	（【注】在 index.js 文件中导入 font-awesome:
+
+		import 'font-awesome/css/font-awesome.min.css' ）
+
+	7、axios 插件的安装
+
+		npm install axios  --save
+
+
+
+
+三、如何构建 Redux 项目目录?
+
+	大多数项目都有几个顶级目录，如下所示：
+
+	（1）Components:  展示组件，用于dumb组件，Redux 不必关心的组件。
+
+	（2）Containers:  容器组件，用于连接到 Redux 的smart组件。
+
+	（3）ActionCreators:  用于所有 Action 创建器。
+
+	（4）ActionTypes: 整合 action 的 type 名称，防止引用出错，常量定义一般用 大写字母
+
+	（4）Reducers:  用于所有 reducer，其中文件名对应于state key。
+
+	（5）Store:  用于 Store 初始化。
+
+
+
+
+
+
+
+
+
+
+
+
